@@ -7,10 +7,15 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 require 'faker'
+require 'securerandom'
 
 
 
-user = User.create! name: "amanda2", email: "amanda@gmail.com",  password: "12345678", password_confirmation: "12345678"
+user = User.create! name: "amanda2",
+                    email: "amanda@gmail.com",
+                    password: "12345678",
+                    password_confirmation: "12345678",
+                    token: SecureRandom.hex(8)
 
 2.times do
   secret = Secret.new

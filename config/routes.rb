@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
   root 'secrets#index'
 
+  get '/secrets' => 'secrets#index'
+
   # get '/signup' => 'users#new', as: :signup
   post '/users' => 'users#create', as: :users
 

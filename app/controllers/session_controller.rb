@@ -4,13 +4,15 @@ class SessionController < ApplicationController
   end
 
   def create
-    username = params[:username]
+    name = params[:name]
     password = params[:password]
 
-    user = User.find_by username: username
-    if (user) && (user.authenticate password)
-      session[:user_id] = user.id
-      @current_user = user
+    @user = User.find_by name: name
+    if (@user) && (@user.authenticate password)
+      # session[:user_id] = user.id
+      # @current_user = user
+    else
+      render json: {auth: "failed"}, status: 422
     end
   end
 
@@ -18,5 +20,5 @@ class SessionController < ApplicationController
     session.delete :user_id
     redirect_to login_path
   end
-  
+
 end
