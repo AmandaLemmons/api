@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root 'secrets#index'
 
   get '/secrets' => 'secrets#index'
+  post '/secrets' => 'secrets#create'
 
   # get '/signup' => 'users#new', as: :signup
   post '/users' => 'users#create', as: :users
@@ -10,6 +11,12 @@ Rails.application.routes.draw do
   # get '/login' => 'session#new', as: :login
   post '/auth' => 'session#create', as: :auth
   get '/logout' => 'session#destroy', as: :logout
+
+
+
+
+
+
 
 
 
