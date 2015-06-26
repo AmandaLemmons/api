@@ -1,14 +1,14 @@
 Rails.application.routes.draw do
 
-  root 'secrets#index'
+  root 'pages#dashboard'
 
   get '/secrets' => 'secrets#index'
   post '/secrets' => 'secrets#create'
 
-  # get '/signup' => 'users#new', as: :signup
-  post '/users' => 'users#create', as: :users
 
-  # get '/login' => 'session#new', as: :login
+  post '/users' => 'users#create'
+
+
   post '/auth' => 'session#create', as: :auth
   get '/logout' => 'session#destroy', as: :logout
 

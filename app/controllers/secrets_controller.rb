@@ -9,11 +9,11 @@ class SecretsController < ApplicationController
   # end
 
   def index
-    @secrets = Secret.all.includes(:user)
+    @secrets = Secret.all.includes(:user).first(20)
   end
 
   def create
-    @secret = Secret.new params.require(:secret).permit(:comment)
+    @secret = Secret.new params.require(:secret).permit(:comment, :user_id)
       if @secret.save
         render :index, status: 201
       else

@@ -3,7 +3,7 @@ class CreateSecrets < ActiveRecord::Migration
     create_table :secrets do |t|
       t.string :title
       t.string :comment
-      t.string :user_id
+      t.integer :user_id
 
       t.timestamps null: false
     end

@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 20150624164013) do
   create_table "secrets", force: :cascade do |t|
     t.string   "title"
     t.string   "comment"
-    t.string   "user_id"
+    t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
