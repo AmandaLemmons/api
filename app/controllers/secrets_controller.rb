@@ -13,7 +13,7 @@ class SecretsController < ApplicationController
   end
 
   def create
-    @secret = Secret.new params.require(:secret).permit(:comment, :user_id, :title)
+    @secret = Secret.new params.require(:secret).permit(:comment, :user_id, :title, :created_at)
       if @secret.save
         render :index, status: 201
       else
